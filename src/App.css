@@ -44,7 +44,7 @@ form label {
   left: -99999px;
 }
 
-button {
+form button {
   padding: 1rem 2rem;
   font-size: 1.25em;
   margin-top: 1rem;
