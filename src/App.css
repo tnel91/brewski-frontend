@@ -8,7 +8,7 @@ header {
   justify-content: space-between;
   align-items: center;
   background: rgb(151,147,208);
-background: linear-gradient(90deg, rgba(151,147,208,1) 0%, rgba(66,185,135,1) 57%, rgba(0,212,255,1) 100%);
+  background: linear-gradient(90deg, rgba(151,147,208,1) 0%, rgba(66,185,135,1) 57%, rgba(0,212,255,1) 100%);
 }
 
 .link {
@@ -22,6 +22,71 @@ background: linear-gradient(90deg, rgba(151,147,208,1) 0%, rgba(66,185,135,1) 57
 
 .link:hover {
   color: white;
+}
+
+.home {
+  background-color: lightcyan;
+}
+
+.home-picture {
+  display: block;
+  margin: auto;
+  height: 200px;
+  width: 600px;
+}
+
+.writing {
+  text-align: center;
+  color: black
+}
+
+.home-buttons {
+  display: flex;
+  justify-content: center;
+  justify-content: space-evenly;
+  margin-left: 500px;
+  margin-right: 500px;
+}
+
+#button {
+  background-color: teal;
+  cursor: pointer;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  opacity: 1;
+  transition: 0.3s;
+  font-weight: 700;
+  border-radius: 15px;
+  box-shadow: 0 5px #999;
+}
+
+#button:hover {
+  opacity: 0.8;
+}
+
+#button:active {
+  background-color: green;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+
+.pic1 {
+  width: 500px;
+  height: 400px;
+  padding: 10px;
+  margin-left: 360px;
+  margin-top: 15px;
+}
+.pic2 {
+  width: 500px;
+  height: 400px;
+  padding: 10px;
+  margin-top: 15px;
 }
 
 form {
