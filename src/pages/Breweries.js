@@ -40,7 +40,6 @@ const Breweries = () => {
               id={brewery.id}
               name={brewery.name}
               address={brewery.address}
-              beers={brewery.beers}
               onClick={showBreweryDetails}
             />
           </div>
