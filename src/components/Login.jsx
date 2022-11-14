@@ -35,6 +35,7 @@ const Login = () => {
           id="email"
           name="email"
           value={formState.email}
+          placeholder="Email"
           required
           onChange={(event) => handleChange(event)}
         />
@@ -45,6 +46,7 @@ const Login = () => {
           id="password"
           name="password"
           value={formState.password}
+          placeholder="Password"
           required
           onChange={(event) => handleChange(event)}
         />
