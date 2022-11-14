@@ -1,23 +1,25 @@
 import './App.css'
 import Nav from './components/Navbar'
 import { useState } from 'react'
+import Signin from './pages/Signin'
+import Register from './pages/Register'
 
 function App() {
-  const [authenticated, toggleAuthenticated] = useState(false);
-  const [user, setUser] = useState(null);
+  const [authenticated, toggleAuthenticated] = useState(false)
+  const [user, setUser] = useState(null)
 
   const handleLogout = () => {
-    setUser(null);
-    toggleAuthenticated(false);
-    localStorage.clear();
+    setUser(null)
+    toggleAuthenticated(false)
+    localStorage.clear()
   }
 
   return (
     <div className="App">
-      <Nav 
-      authenticated={authenticated}
-      user={user}
-      handleLogout={handleLogout}
+      <Nav
+        authenticated={authenticated}
+        user={user}
+        handleLogout={handleLogout}
       />
       <h1>Brewski</h1>
     </div>
