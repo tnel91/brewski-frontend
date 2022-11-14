@@ -25,7 +25,6 @@ function App() {
         user={user}
         handleLogout={handleLogout}
       />
-      <h1>Brewski</h1>
 
       <Routes>
         <Route path="/" element={<Home />} />
