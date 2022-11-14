@@ -24,3 +24,32 @@ background: linear-gradient(90deg, rgba(151,147,208,1) 0%, rgba(66,185,135,1) 57
   color: white;
 }
 
+form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+form input {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 25px;
+  outline: none;
+  font-size: 1.5em;
+}
+
+form label {
+  position: absolute;
+  left: -99999px;
+}
+
+button {
+  padding: 1rem 2rem;
+  font-size: 1.25em;
+  margin-top: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  background-color: #009FFD;
+}
