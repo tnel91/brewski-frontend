@@ -118,3 +118,44 @@ form button {
   border: none;
   background-color: #009FFD;
 }
+
+.profile {
+  background-color: lightcyan;
+  padding-left: 10px;
+}
+
+h2 {
+  text-decoration: underline;
+}
+
+.info-card {
+  position: relative;
+  width: 400px;
+  height: 200px;
+}
+
+.review-cardfav {
+  position: relative;
+  width: 500px;
+  height: 300px;
+  border: 2px solid rgb(85, 185, 165);
+}
+
+.review-card {
+  position: relative;
+  width: 500px;
+  height: 200px;
+  margin-bottom: 90px;
+}
+
+
+#user-button {
+  padding: 1rem 2rem;
+  font-size: 1.25em;
+  margin-top: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  background-color: #009FFD;
+  color: white;
+}
