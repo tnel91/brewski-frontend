@@ -159,6 +159,7 @@ h2 {
   border: none;
   background-color: #009FFD;
   color: white;
+}
 
 .brewery_card {
   border: 1px solid black;
@@ -173,4 +174,9 @@ h2 {
   height: 10em;
   width: 30em;
   resize: none;
+}
+
+.footer {
+  position: relative;
+  text-align: center;
 }

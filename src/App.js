@@ -8,6 +8,7 @@ import Breweries from './pages/Breweries'
 import Profile from './pages/Profile'
 import { Route, Routes } from 'react-router-dom'
 import BreweryDetails from './pages/BreweryDetails'
+import Footer from './components/Footer'
 
 function App() {
   const [authenticated, toggleAuthenticated] = useState(false)
@@ -35,6 +36,9 @@ function App() {
         <Route path="/breweries/:breweryId" element={<BreweryDetails />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>
+      <div>
+        <Footer />
+      </div>
     </div>
   )
 }
