@@ -12,6 +12,7 @@ h1 {
 }
 
 h2 {
+  margin-top: 2rem;
   font-size: 2em;
 }
 
@@ -108,11 +109,6 @@ header {
   padding: 10px;
 }
 
-.profile {
-  background-color: lightcyan;
-  padding-left: 10px;
-}
-
 .home p {
   margin: 0 auto;
 }
@@ -130,9 +126,6 @@ header {
 }
 
 /* SIGNIN/REGISTER */
-.signin, .register {
-  padding: 2rem;
-}
 
 form {
   max-width: 400px;
@@ -147,6 +140,11 @@ form input {
   border-radius: 25px;
   outline: none;
   font-size: 1.5em;
+}
+
+/* REVIEWS */
+.profile {
+  padding-left: 10px;
 }
 
 .info-card {
