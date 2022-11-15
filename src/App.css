@@ -1,14 +1,16 @@
+
+
 .header-logo {
   height: 4em;
 }
 
 header {
   max-height: 4em;
+  padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgb(151,147,208);
-  background: linear-gradient(90deg, rgba(151,147,208,1) 0%, rgba(66,185,135,1) 57%, rgba(0,212,255,1) 100%);
+  background: #EDAE49;
 }
 
 .link {
@@ -24,10 +26,6 @@ header {
   color: white;
 }
 
-.home {
-  background-color: lightcyan;
-}
-
 .home-picture {
   display: block;
   margin: auto;
@@ -37,7 +35,6 @@ header {
 
 .writing {
   text-align: center;
-  color: black
 }
 
 .home-buttons {
@@ -48,8 +45,8 @@ header {
   margin-right: 500px;
 }
 
-#button {
-  background-color: teal;
+button {
+  background-color: #009FFD;
   cursor: pointer;
   border: none;
   color: white;
@@ -61,16 +58,14 @@ header {
   transition: 0.3s;
   font-weight: 700;
   border-radius: 15px;
-  box-shadow: 0 5px #999;
 }
 
-#button:hover {
+button:hover {
   opacity: 0.8;
 }
 
-#button:active {
-  background-color: green;
-  box-shadow: 0 5px #666;
+button:active {
+  background-color: #0087d5;
   transform: translateY(4px);
 }
 
@@ -79,14 +74,15 @@ header {
   width: 500px;
   height: 400px;
   padding: 10px;
-  margin-left: 360px;
-  margin-top: 15px;
 }
 .pic2 {
   width: 500px;
   height: 400px;
   padding: 10px;
-  margin-top: 15px;
+}
+
+.signin, .register {
+  padding: 2rem;
 }
 
 form {
@@ -125,8 +121,43 @@ form button {
   padding-left: 10px;
 }
 
+h2, h1 {
+  width: fit-content;
+  margin: 0 auto;
+  padding: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-bottom: 2px solid #D1495B;
+}
+
+h1 {
+  font-size: 3em;
+}
+
 h2 {
-  text-decoration: underline;
+  font-size: 2em;
+}
+
+p {
+  max-width: 800px;
+  padding: 1rem;
+  font-size: 1.25em;
+}
+
+.home p {
+  margin: 0 auto;
+}
+
+.home2 {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.home svg {
+  width: 100%;
+  position: absolute;
+  z-index: -1;
 }
 
 .info-card {
