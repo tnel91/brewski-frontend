@@ -1,16 +1,24 @@
-
-
-.header-logo {
-  height: 4em;
+h2, h1 {
+  width: fit-content;
+  margin: 0 auto;
+  padding: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-bottom: 2px solid #D1495B;
 }
 
-header {
-  max-height: 4em;
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #EDAE49;
+h1 {
+  font-size: 3em;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+p {
+  max-width: 800px;
+  padding: 1rem;
+  font-size: 1.25em;
 }
 
 .link {
@@ -24,25 +32,6 @@ header {
 
 .link:hover {
   color: white;
-}
-
-.home-picture {
-  display: block;
-  margin: auto;
-  height: 200px;
-  width: 600px;
-}
-
-.writing {
-  text-align: center;
-}
-
-.home-buttons {
-  display: flex;
-  justify-content: center;
-  justify-content: space-evenly;
-  margin-left: 500px;
-  margin-right: 500px;
 }
 
 button {
@@ -69,6 +58,44 @@ button:active {
   transform: translateY(4px);
 }
 
+form label {
+  position: absolute;
+  left: -99999px;
+}
+
+/* NAV */
+.header-logo {
+  height: 4em;
+}
+
+header {
+  max-height: 4em;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #EDAE49;
+}
+
+/* HOME */
+.home-picture {
+  display: block;
+  margin: auto;
+  height: 200px;
+  width: 600px;
+}
+
+.writing {
+  text-align: center;
+}
+
+.home-buttons {
+  display: flex;
+  justify-content: center;
+  justify-content: space-evenly;
+  margin-left: 500px;
+  margin-right: 500px;
+}
 
 .pic1 {
   width: 500px;
@@ -81,6 +108,28 @@ button:active {
   padding: 10px;
 }
 
+.profile {
+  background-color: lightcyan;
+  padding-left: 10px;
+}
+
+.home p {
+  margin: 0 auto;
+}
+
+.home2 {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.home svg {
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+}
+
+/* SIGNIN/REGISTER */
 .signin, .register {
   padding: 2rem;
 }
@@ -98,66 +147,6 @@ form input {
   border-radius: 25px;
   outline: none;
   font-size: 1.5em;
-}
-
-form label {
-  position: absolute;
-  left: -99999px;
-}
-
-form button {
-  padding: 1rem 2rem;
-  font-size: 1.25em;
-  margin-top: 1rem;
-  border-radius: 5px;
-  cursor: pointer;
-  border: none;
-  background-color: #009FFD;
-}
-
-
-.profile {
-  background-color: lightcyan;
-  padding-left: 10px;
-}
-
-h2, h1 {
-  width: fit-content;
-  margin: 0 auto;
-  padding: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  border-bottom: 2px solid #D1495B;
-}
-
-h1 {
-  font-size: 3em;
-}
-
-h2 {
-  font-size: 2em;
-}
-
-p {
-  max-width: 800px;
-  padding: 1rem;
-  font-size: 1.25em;
-}
-
-.home p {
-  margin: 0 auto;
-}
-
-.home2 {
-  margin-top: 2rem;
-  display: flex;
-  justify-content: center;
-}
-
-.home svg {
-  width: 100%;
-  position: absolute;
-  z-index: -1;
 }
 
 .info-card {
@@ -179,7 +168,6 @@ p {
   height: 200px;
   margin-bottom: 90px;
 }
-
 
 #user-button {
   padding: 1rem 2rem;

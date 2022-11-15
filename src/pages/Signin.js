@@ -3,7 +3,7 @@ import Login from '../components/Login'
 const Signin = () => {
   return (
     <div className="signin">
-      <h1>Sign In!</h1>
+      <h1>Sign In</h1>
       <Login />
     </div>
   )
