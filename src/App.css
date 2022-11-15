@@ -192,3 +192,8 @@ form input {
   width: 30em;
   resize: none;
 }
+
+.footer {
+  position: relative;
+  text-align: center;
+}
