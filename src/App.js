@@ -7,6 +7,7 @@ import Register from './pages/Register'
 import Breweries from './pages/Breweries'
 import Profile from './pages/Profile'
 import { Route, Routes } from 'react-router-dom'
+import BreweryDetails from './pages/BreweryDetails'
 
 function App() {
   const [authenticated, toggleAuthenticated] = useState(false)
@@ -31,6 +32,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/signin" element={<Signin />} />
         <Route path="/breweries" element={<Breweries />} />
+        <Route path="/breweries/:breweryId" element={<BreweryDetails />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>
     </div>

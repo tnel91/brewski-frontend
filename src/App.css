@@ -119,6 +119,7 @@ form button {
   background-color: #009FFD;
 }
 
+
 .profile {
   background-color: lightcyan;
   padding-left: 10px;
@@ -158,4 +159,18 @@ h2 {
   border: none;
   background-color: #009FFD;
   color: white;
+
+.brewery_card {
+  border: 1px solid black;
+  margin: 1em;
+}
+
+.brewery_card:hover {
+  box-shadow: 0px 0px 4px 2px black
+}
+
+#body {
+  height: 10em;
+  width: 30em;
+  resize: none;
 }
