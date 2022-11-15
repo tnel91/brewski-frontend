@@ -2,9 +2,7 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import ReviewForm from '../components/ReviewForm'
-
-let Base_URL =
-  process.env.NODE_ENV === 'production' ? '/api' : 'http://localhost:3001/api'
+import { BASE_URL } from '../globals'
 
 const BreweryDetails = () => {
   const navigate = useNavigate()
@@ -18,7 +16,7 @@ const BreweryDetails = () => {
 
   const getBrewery = async () => {
     await axios
-      .get(`${Base_URL}/breweries/${breweryId}`)
+      .get(`${BASE_URL}/${breweryId}`)
       .then((response) => {
         setBrewery(response.data)
       })
