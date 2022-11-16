@@ -1,8 +1,14 @@
+import axios from 'axios'
 import { useState } from 'react'
+import { BASE_URL } from '../globals'
 
-const ReviewForm = () => {
+const ReviewForm = (props) => {
   const initialState = {
-    body: ''
+    body: '',
+    breweryId: props.breweryId,
+    // This needs to use Auth to get authorId
+    authorId: 2
+    //
   }
 
   const [formState, setFormState] = useState(initialState)
@@ -11,11 +17,16 @@ const ReviewForm = () => {
     setFormState({ ...formState, [event.target.id]: event.target.value })
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
-    //Submit logic here
-    console.log('submitted')
-    //
+    await axios
+      .post(`${BASE_URL}/reviews/new`, formState)
+      .then(() => {
+        props.getReviews()
+      })
+      .catch((error) => {
+        console.log(error)
+      })
     setFormState(initialState)
   }
 
