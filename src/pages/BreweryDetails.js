@@ -16,7 +16,7 @@ const BreweryDetails = () => {
 
   const getBrewery = async () => {
     await axios
-      .get(`${BASE_URL}/${breweryId}`)
+      .get(`${BASE_URL}/brewery/${breweryId}`)
       .then((response) => {
         setBrewery(response.data)
       })
