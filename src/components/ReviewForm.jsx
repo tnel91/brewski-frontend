@@ -1,17 +1,13 @@
 import axios from 'axios'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { BASE_URL } from '../globals'
 
 const ReviewForm = (props) => {
-  const initialState = {
+  const [formState, setFormState] = useState({
     body: '',
     breweryId: props.breweryId,
-    // This needs to use Auth to get authorId
-    authorId: 2
-    //
-  }
-
-  const [formState, setFormState] = useState(initialState)
+    authorId: ''
+  })
 
   const handleChange = (event) => {
     setFormState({ ...formState, [event.target.id]: event.target.value })
@@ -25,13 +21,30 @@ const ReviewForm = (props) => {
         props.getReviews()
       })
       .catch((error) => {
-        console.log(error)
+        alert(error)
       })
-    setFormState(initialState)
+    setFormState({
+      body: '',
+      breweryId: props.breweryId,
+      authorId: ''
+    })
   }
 
+  const initForm = () => {
+    if (props.user) {
+      setFormState({ ...formState, authorId: props.user.id })
+      document.getElementById('review_form').style.display = ''
+    } else {
+      document.getElementById('review_form').style.display = 'none'
+    }
+  }
+
+  useEffect(() => {
+    initForm()
+  }, [props.user])
+
   return (
-    <form onSubmit={handleSubmit}>
+    <form id="review_form" onSubmit={handleSubmit}>
       <fieldset>
         <legend>Create Review</legend>
         <textarea
