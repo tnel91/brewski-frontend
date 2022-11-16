@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import axios from 'axios'
+import { BASE_URL } from '../globals'
 
 const Signup = () => {
   const [formState, setFormState] = useState({
@@ -16,7 +18,7 @@ const Signup = () => {
     })
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
     // only register when both passwords match
     if (
@@ -25,6 +27,12 @@ const Signup = () => {
       formState.password === formState.confirmPassword
     ) {
       //register
+      await axios
+        .post(`${BASE_URL}/users/new`, formState)
+        .then(console.log('created user'))
+        .catch((error) => {
+          console.log(error)
+        })
       console.log(formState)
     }
 
