@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import axios from 'axios'
+import { SignInUser } from '../services/Auth'
 
 const Login = () => {
   const [formState, setFormState] = useState({
@@ -16,11 +17,15 @@ const Login = () => {
     })
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
-    // login
-    console.log(formState)
 
+    await SignInUser ({
+      email: formState.email,
+      password: formState.password
+    })
+    
+    console.log(formState) 
     setFormState({
       email: '',
       password: ''
