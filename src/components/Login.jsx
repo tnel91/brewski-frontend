@@ -1,13 +1,14 @@
 import { useState } from 'react'
 import axios from 'axios'
 import { SignInUser } from '../services/Auth'
+import { useNavigate } from 'react-router-dom'
 
-const Login = () => {
+const Login = (props) => {
   const [formState, setFormState] = useState({
     email: '',
     password: ''
   })
-
+  let navigate = useNavigate()
   const handleChange = (event) => {
     const input = event.target
 
@@ -20,7 +21,7 @@ const Login = () => {
   const handleSubmit = async (event) => {
     event.preventDefault()
 
-    await SignInUser ({
+    const signedIn = await SignInUser ({
       email: formState.email,
       password: formState.password
     })
@@ -30,6 +31,10 @@ const Login = () => {
       email: '',
       password: ''
     })
+    
+    props.setUser(signedIn)
+    props.toggleAuthenticated(true)
+    navigate('/breweries')
   }
 
   return (

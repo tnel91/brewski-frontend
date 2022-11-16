@@ -1,10 +1,13 @@
 import Login from '../components/Login'
 
-const Signin = () => {
+const Signin = (props) => {
   return (
     <div className="signin">
       <h2>Sign In</h2>
-      <Login />
+      <Login
+        setUser={props.setUser}
+        toggleAuthenticated={props.toggleAuthenticated}
+      />
     </div>
   )
 }
