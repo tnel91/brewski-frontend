@@ -31,7 +31,15 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/signin" element={<Signin />} />
+        <Route
+          path="/signin"
+          element={
+            <Signin
+              setUser={setUser}
+              toggleAuthenticated={toggleAuthenticated}
+            />
+          }
+        />
         <Route path="/breweries" element={<Breweries />} />
         <Route path="/breweries/:breweryId" element={<BreweryDetails />} />
         <Route path="/profile" element={<Profile />} />
