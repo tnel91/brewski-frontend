@@ -41,7 +41,10 @@ function App() {
           }
         />
         <Route path="/breweries" element={<Breweries />} />
-        <Route path="/breweries/:breweryId" element={<BreweryDetails />} />
+        <Route
+          path="/breweries/:breweryId"
+          element={<BreweryDetails user={user} />}
+        />
         <Route path="/profile" element={<Profile />} />
       </Routes>
       <div>
