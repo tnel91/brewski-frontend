@@ -142,6 +142,14 @@ form input {
   font-size: 1.5em;
 }
 
+.error-msg {
+  width: fit-content;
+  padding: 1rem 2rem;
+  margin: 2rem auto;
+  text-transform: uppercase;
+  border: 1px solid #D1495B;
+}
+
 /* REVIEWS */
 .profile {
   padding-left: 10px;

@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import axios from 'axios'
-import { BASE_URL } from '../globals'
+import { useNavigate } from 'react-router-dom'
 import { RegisterUser } from '../services/Auth'
+import ErrorMsg from './ErrorMsg'
 
 const Signup = () => {
   const [formState, setFormState] = useState({
@@ -9,6 +9,9 @@ const Signup = () => {
     password: '',
     confirmPassword: ''
   })
+  const [isError, toggleIsError] = useState(false)
+  const [errorMsg, setErrorMsg] = useState('')
+  let navigate = useNavigate()
 
   const handleChange = (event) => {
     const input = event.target
@@ -28,10 +31,21 @@ const Signup = () => {
       formState.password === formState.confirmPassword
     ) {
       //register
-      await RegisterUser ({
-        email: formState.email,
-        password: formState.password
-      })
+      try {
+        await RegisterUser({
+          email: formState.email,
+          password: formState.password
+        })
+        toggleIsError(false)
+        navigate('/signin')
+      } catch (err) {
+        setErrorMsg('Email already in use!')
+        toggleIsError(true)
+        console.clear()
+      }
+    } else if (formState.password !== formState.confirmPassword) {
+      setErrorMsg("Passwords don't match!")
+      toggleIsError(true)
     }
 
     setFormState({
@@ -79,6 +93,8 @@ const Signup = () => {
 
         <button type="submit">Register</button>
       </form>
+
+      {isError && <ErrorMsg msg={errorMsg} />}
     </div>
   )
 }

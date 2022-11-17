@@ -2,13 +2,16 @@ import { useState } from 'react'
 import axios from 'axios'
 import { SignInUser } from '../services/Auth'
 import { useNavigate } from 'react-router-dom'
+import ErrorMsg from './ErrorMsg'
 
 const Login = (props) => {
   const [formState, setFormState] = useState({
     email: '',
     password: ''
   })
+  const [isError, toggleIsError] = useState(false)
   let navigate = useNavigate()
+
   const handleChange = (event) => {
     const input = event.target
 
@@ -21,20 +24,25 @@ const Login = (props) => {
   const handleSubmit = async (event) => {
     event.preventDefault()
 
-    const signedIn = await SignInUser ({
-      email: formState.email,
-      password: formState.password
-    })
-    
-    console.log(formState) 
+    try {
+      const signedIn = await SignInUser({
+        email: formState.email,
+        password: formState.password
+      })
+
+      props.setUser(signedIn)
+      props.toggleAuthenticated(true)
+      toggleIsError(false)
+      navigate('/breweries')
+    } catch (err) {
+      toggleIsError(true)
+      console.clear()
+    }
+
     setFormState({
       email: '',
       password: ''
     })
-    
-    props.setUser(signedIn)
-    props.toggleAuthenticated(true)
-    navigate('/breweries')
   }
 
   return (
@@ -64,6 +72,8 @@ const Login = (props) => {
 
         <button type="submit">Sign In</button>
       </form>
+
+      {isError && <ErrorMsg msg="Wrong email or password!" />}
     </div>
   )
 }
