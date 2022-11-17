@@ -1,12 +1,11 @@
 import axios from 'axios'
 import { useState, useEffect } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import ReviewForm from '../components/ReviewForm'
 import ReviewCard from '../components/ReviewCard'
 import { BASE_URL } from '../globals'
 
-const BreweryDetails = () => {
-  const navigate = useNavigate()
+const BreweryDetails = (props) => {
   const [brewery, setBrewery] = useState({
     name: '',
     address: '',
@@ -51,7 +50,11 @@ const BreweryDetails = () => {
       {brewery.beers.map((beer, i) => (
         <p key={i}>{beer}</p>
       ))}
-      <ReviewForm breweryId={breweryId} getReviews={getReviews} />
+      <ReviewForm
+        breweryId={breweryId}
+        getReviews={getReviews}
+        user={props.user}
+      />
       <section>
         {reviews.map((review) => (
           <div key={review.id}>
