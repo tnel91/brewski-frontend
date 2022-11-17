@@ -41,7 +41,6 @@ const Signup = () => {
       } catch (err) {
         setErrorMsg('Email already in use!')
         toggleIsError(true)
-        console.clear()
       }
     } else if (formState.password !== formState.confirmPassword) {
       setErrorMsg("Passwords don't match!")

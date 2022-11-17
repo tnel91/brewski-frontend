@@ -36,7 +36,6 @@ const Login = (props) => {
       navigate('/breweries')
     } catch (err) {
       toggleIsError(true)
-      console.clear()
     }
 
     setFormState({
