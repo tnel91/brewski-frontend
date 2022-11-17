@@ -1,6 +1,6 @@
 import './App.css'
 import Nav from './components/Navbar'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Home from './pages/Home'
 import Signin from './pages/Signin'
 import Register from './pages/Register'
@@ -9,10 +9,24 @@ import Profile from './pages/Profile'
 import { Route, Routes } from 'react-router-dom'
 import BreweryDetails from './pages/BreweryDetails'
 import Footer from './components/Footer'
+import { CheckSession } from './services/Auth'
 
 function App() {
   const [authenticated, toggleAuthenticated] = useState(false)
   const [user, setUser] = useState(null)
+
+  const checkToken = async () => {
+    const user = await CheckSession()
+    setUser(user)
+    toggleAuthenticated(true)
+  }
+
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if (token) {
+      checkToken()
+    }
+  }, [])
 
   const handleLogout = () => {
     setUser(null)
