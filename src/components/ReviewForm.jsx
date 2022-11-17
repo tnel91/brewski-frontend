@@ -1,17 +1,23 @@
 import axios from 'axios'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { BASE_URL } from '../globals'
+import { useNavigate } from 'react-router-dom'
 
 const ReviewForm = (props) => {
-  const initialState = {
+  let navigate = useNavigate()
+
+  const [formState, setFormState] = useState({
     body: '',
     breweryId: props.breweryId,
-    // This needs to use Auth to get authorId
-    authorId: 2
-    //
-  }
+    authorId: ''
+  })
 
-  const [formState, setFormState] = useState(initialState)
+  const [formLayout, setFormLayout] = useState({
+    legend: 'Create Review',
+    buttonText: 'Submit Review',
+    updateForm: false,
+    reveiwId: null
+  })
 
   const handleChange = (event) => {
     setFormState({ ...formState, [event.target.id]: event.target.value })
@@ -19,21 +25,104 @@ const ReviewForm = (props) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
+    if (formLayout.updateForm === true) {
+      await axios
+        .put(`${BASE_URL}/reviews/edit/${formLayout.reveiwId}`, formState)
+        .then(() => {
+          // props.getReviews()
+          // initForm()
+          navigate('/profile')
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+      setFormState({ ...formState, body: '' })
+      navigate('/profile')
+    } else {
+      await axios
+        .post(`${BASE_URL}/reviews/new`, formState)
+        .then(() => {
+          // props.getReviews()
+          // initForm()
+          navigate('/profile')
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+      setFormState({
+        body: '',
+        breweryId: props.breweryId,
+        authorId: ''
+      })
+      navigate('/profile')
+    }
+  }
+
+  const handleDelete = async (event) => {
+    event.preventDefault()
     await axios
-      .post(`${BASE_URL}/reviews/new`, formState)
+      .delete(`${BASE_URL}/reviews/delete/${formLayout.reveiwId}`)
       .then(() => {
-        props.getReviews()
+        // props.getReviews()
+        // initForm()
+        navigate('/profile')
       })
       .catch((error) => {
         console.log(error)
       })
-    setFormState(initialState)
   }
 
+  const initForm = async () => {
+    console.log('init form')
+    if (props.user) {
+      document.getElementById('review_form').style.display = ''
+      await axios
+        .get(`${BASE_URL}/reviews/${props.breweryId}/${props.user.id}`)
+        .then((response) => {
+          if (response.data) {
+            setFormState({
+              body: response.data.body,
+              breweryId: props.breweryId,
+              authorId: props.user.id
+            })
+            setFormLayout({
+              legend: 'Update Review',
+              buttonText: 'Update Review',
+              updateForm: true,
+              reveiwId: response.data.id
+            })
+            document.getElementById('delete_button').style.display = ''
+          } else {
+            setFormState({
+              body: '',
+              breweryId: props.breweryId,
+              authorId: props.user.id
+            })
+            setFormLayout({
+              legend: 'Create Review',
+              buttonText: 'Submit Review',
+              updateForm: false,
+              reveiwId: response.data.id
+            })
+            document.getElementById('delete_button').style.display = 'none'
+          }
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    } else {
+      document.getElementById('review_form').style.display = 'none'
+    }
+  }
+
+  useEffect(() => {
+    initForm()
+  }, [props.user, props.breweryId])
+
   return (
-    <form onSubmit={handleSubmit}>
+    <form id="review_form" onSubmit={handleSubmit}>
       <fieldset>
-        <legend>Create Review</legend>
+        <legend>{formLayout.legend}</legend>
         <textarea
           id="body"
           placeholder="Review"
@@ -41,7 +130,10 @@ const ReviewForm = (props) => {
           value={formState.body}
           required
         ></textarea>
-        <button type="submit">Submit Review</button>
+        <button type="submit">{formLayout.buttonText}</button>
+        <button id="delete_button" type="button" onClick={handleDelete}>
+          Delete Review
+        </button>
       </fieldset>
     </form>
   )

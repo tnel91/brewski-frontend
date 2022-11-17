@@ -15,6 +15,19 @@ function App() {
   const [authenticated, toggleAuthenticated] = useState(false)
   const [user, setUser] = useState(null)
 
+  const checkToken = async () => {
+    const user = await CheckSession()
+    setUser(user)
+    toggleAuthenticated(true)
+  }
+
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if (token) {
+      checkToken()
+    }
+  }, [])
+
   const handleLogout = () => {
     setUser(null)
     toggleAuthenticated(false)
@@ -55,7 +68,10 @@ function App() {
           }
         />
         <Route path="/breweries" element={<Breweries />} />
-        <Route path="/breweries/:breweryId" element={<BreweryDetails />} />
+        <Route
+          path="/breweries/:breweryId"
+          element={<BreweryDetails user={user} />}
+        />
         <Route path="/profile" element={<Profile />} />
       </Routes>
       <div>
