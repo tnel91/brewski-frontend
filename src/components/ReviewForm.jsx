@@ -29,10 +29,12 @@ const ReviewForm = (props) => {
       await axios
         .put(`${BASE_URL}/reviews/edit/${formLayout.reveiwId}`, formState)
         .then(() => {
-          props.getReviews()
+          // props.getReviews()
+          // initForm()
+          navigate('/profile')
         })
         .catch((error) => {
-          alert(error)
+          console.log(error)
         })
       setFormState({ ...formState, body: '' })
       navigate('/profile')
@@ -40,10 +42,12 @@ const ReviewForm = (props) => {
       await axios
         .post(`${BASE_URL}/reviews/new`, formState)
         .then(() => {
-          props.getReviews()
+          // props.getReviews()
+          // initForm()
+          navigate('/profile')
         })
         .catch((error) => {
-          alert(error)
+          console.log(error)
         })
       setFormState({
         body: '',
@@ -54,7 +58,22 @@ const ReviewForm = (props) => {
     }
   }
 
+  const handleDelete = async (event) => {
+    event.preventDefault()
+    await axios
+      .delete(`${BASE_URL}/reviews/delete/${formLayout.reveiwId}`)
+      .then(() => {
+        // props.getReviews()
+        // initForm()
+        navigate('/profile')
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  }
+
   const initForm = async () => {
+    console.log('init form')
     if (props.user) {
       document.getElementById('review_form').style.display = ''
       await axios
@@ -72,16 +91,24 @@ const ReviewForm = (props) => {
               updateForm: true,
               reveiwId: response.data.id
             })
+            document.getElementById('delete_button').style.display = ''
           } else {
             setFormState({
               body: '',
               breweryId: props.breweryId,
               authorId: props.user.id
             })
+            setFormLayout({
+              legend: 'Create Review',
+              buttonText: 'Submit Review',
+              updateForm: false,
+              reveiwId: response.data.id
+            })
+            document.getElementById('delete_button').style.display = 'none'
           }
         })
         .catch((error) => {
-          alert(error)
+          console.log(error)
         })
     } else {
       document.getElementById('review_form').style.display = 'none'
@@ -104,6 +131,9 @@ const ReviewForm = (props) => {
           required
         ></textarea>
         <button type="submit">{formLayout.buttonText}</button>
+        <button id="delete_button" type="button" onClick={handleDelete}>
+          Delete Review
+        </button>
       </fieldset>
     </form>
   )
