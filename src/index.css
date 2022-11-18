@@ -3,11 +3,12 @@
 html {
   height: 100vh;
   width: 100%;
-  background: rgb(21,19,27);
-  background: linear-gradient(0deg, rgba(21,19,27,1) 0%, rgb(13, 12, 17) 100%);
+
 }
 
 body {
+  background: rgb(21,19,27);
+  background: linear-gradient(0deg, rgba(21,19,27,1) 0%, rgb(13, 12, 17) 100%);
   height: 100%;
   overflow-x: hidden;
   color: #EEE5E9;

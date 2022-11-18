@@ -1,7 +1,3 @@
-.App {
-  background: rgb(21,19,27);
-  background: linear-gradient(0deg, rgba(21,19,27,1) 0%, rgb(13, 12, 17) 100%);
-}
 
 h2, h1 {
   width: fit-content;
@@ -95,6 +91,7 @@ header {
   justify-content: space-between;
   align-items: center;
   background: #EDAE49;
+  z-index: 10;
 }
 
 /* HOME */
@@ -103,6 +100,7 @@ header {
   margin: auto;
   height: 200px;
   width: 600px;
+  z-index: 2;
 }
 
 .writing {
