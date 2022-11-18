@@ -47,13 +47,11 @@ const BreweryDetails = (props) => {
   return (
     <div>
       {props.authenticated ? (
-        <div>
+        <div className="details">
           <h1>{brewery.name}</h1>
           <h2>{brewery.address}</h2>
           <div className="beer_list">
-            <p>
-              <b>BEER LIST:</b>
-            </p>
+            <h3>Beers:</h3>
             {brewery.beers.map((beer, i) => (
               <p key={i}>{beer}</p>
             ))}
@@ -65,9 +63,7 @@ const BreweryDetails = (props) => {
               user={props.user}
             />
             <div className="review_list">
-              <p>
-                <b>REVIEWS:</b>
-              </p>
+              <h3>Reviews</h3>
               {reviews.map((review) => (
                 <div key={review.id}>
                   <ReviewCard body={review.body} authorId={review.authorId} />
