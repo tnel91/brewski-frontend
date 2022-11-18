@@ -1,3 +1,8 @@
+.App {
+  background: rgb(21,19,27);
+  background: linear-gradient(0deg, rgba(21,19,27,1) 0%, rgb(13, 12, 17) 100%);
+}
+
 h2, h1 {
   width: fit-content;
   margin: 0 auto;
@@ -14,6 +19,13 @@ h1 {
 h2 {
   margin-top: 2rem;
   font-size: 2em;
+}
+
+h3 {
+  width: fit-content;
+  padding: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 
 p {
@@ -200,14 +212,22 @@ margin: 1em
   color: white;
 }
 
+.breweryGrid {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
 .brewery_card {
-  border: 1px solid white;
-  margin: 1em;
+  width: 100%;
+  padding: 0 2rem;
+  border-bottom: 1px solid white;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .brewery_card:hover {
-  box-shadow: 0px 0px 4px 2px white
+  color: #D1495B;
+  border-color: #D1495B;
 }
 
 .beer_list {
@@ -222,6 +242,7 @@ margin: 1em
 }
 
 .footer {
+  padding: 5rem;
   position: relative;
   text-align: center;
 }
