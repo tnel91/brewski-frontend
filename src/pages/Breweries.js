@@ -4,8 +4,9 @@ import { useNavigate } from 'react-router-dom'
 import { BASE_URL } from '../globals'
 
 import BreweryCard from '../components/BreweryCard'
+import AuthError from '../components/AuthError'
 
-const Breweries = () => {
+const Breweries = (props) => {
   let navigate = useNavigate()
   const [breweries, setBreweries] = useState([])
 
@@ -30,19 +31,24 @@ const Breweries = () => {
 
   return (
     <div className="breweries">
-      <h2>All Breweries</h2>
-      <section className="breweryGrid">
-        {breweries.map((brewery) => (
-          <div key={brewery.id}>
-            <BreweryCard
-              id={brewery.id}
-              name={brewery.name}
-              address={brewery.address}
-              onClick={showBreweryDetails}
-            />
-          </div>
-        ))}
-      </section>
+      {props.authenticated ? (
+        <section className="breweryGrid">
+          <h2>All Breweries</h2>
+
+          {breweries.map((brewery) => (
+            <div key={brewery.id}>
+              <BreweryCard
+                id={brewery.id}
+                name={brewery.name}
+                address={brewery.address}
+                onClick={showBreweryDetails}
+              />
+            </div>
+          ))}
+        </section>
+      ) : (
+        <AuthError />
+      )}
     </div>
   )
 }

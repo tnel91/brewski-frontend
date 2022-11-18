@@ -54,12 +54,18 @@ function App() {
             />
           }
         />
-        <Route path="/breweries" element={<Breweries />} />
+        <Route
+          path="/breweries"
+          element={<Breweries authenticated={authenticated} />}
+        />
         <Route
           path="/breweries/:breweryId"
-          element={<BreweryDetails user={user} />}
+          element={<BreweryDetails user={user} authenticated={authenticated} />}
         />
-        <Route path="/profile" element={<Profile user={user} />} />
+        <Route
+          path="/profile"
+          element={<Profile user={user} authenticated={authenticated} />}
+        />
       </Routes>
       <div>
         <Footer />
