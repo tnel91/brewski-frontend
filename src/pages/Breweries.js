@@ -41,6 +41,7 @@ const Breweries = (props) => {
                 id={brewery.id}
                 name={brewery.name}
                 address={brewery.address}
+                beers={brewery.beers}
                 onClick={showBreweryDetails}
               />
             </div>

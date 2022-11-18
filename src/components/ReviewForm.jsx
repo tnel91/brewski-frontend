@@ -65,7 +65,6 @@ const ReviewForm = (props) => {
   }
 
   const initForm = async () => {
-    console.log('init form')
     if (props.user) {
       document.getElementById('review_form').style.display = ''
       await axios
