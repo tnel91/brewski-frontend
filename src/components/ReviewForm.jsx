@@ -1,11 +1,8 @@
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { BASE_URL } from '../globals'
-import { useNavigate } from 'react-router-dom'
 
 const ReviewForm = (props) => {
-  let navigate = useNavigate()
-
   const [formState, setFormState] = useState({
     body: '',
     breweryId: props.breweryId,
@@ -29,22 +26,19 @@ const ReviewForm = (props) => {
       await axios
         .put(`${BASE_URL}/reviews/edit/${formLayout.reveiwId}`, formState)
         .then(() => {
-          // props.getReviews()
-          // initForm()
-          navigate('/profile')
+          props.getReviews()
+          initForm()
         })
         .catch((error) => {
           console.log(error)
         })
       setFormState({ ...formState, body: '' })
-      navigate('/profile')
     } else {
       await axios
         .post(`${BASE_URL}/reviews/new`, formState)
         .then(() => {
-          // props.getReviews()
-          // initForm()
-          navigate('/profile')
+          props.getReviews()
+          initForm()
         })
         .catch((error) => {
           console.log(error)
@@ -54,7 +48,6 @@ const ReviewForm = (props) => {
         breweryId: props.breweryId,
         authorId: ''
       })
-      navigate('/profile')
     }
   }
 
@@ -63,9 +56,8 @@ const ReviewForm = (props) => {
     await axios
       .delete(`${BASE_URL}/reviews/delete/${formLayout.reveiwId}`)
       .then(() => {
-        // props.getReviews()
-        // initForm()
-        navigate('/profile')
+        props.getReviews()
+        initForm()
       })
       .catch((error) => {
         console.log(error)

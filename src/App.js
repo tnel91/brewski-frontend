@@ -59,7 +59,7 @@ function App() {
           path="/breweries/:breweryId"
           element={<BreweryDetails user={user} />}
         />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile" element={<Profile user={user} />} />
       </Routes>
       <div>
         <Footer />
