@@ -6,6 +6,34 @@
 
 ---
 
+### **_First Look_**
+
+#### **↓ Home Page ↓**
+
+#### ![image](https://i.imgur.com/mVnkK8P.png)
+
+#### **↓ Register ↓**
+
+#### ![image](https://i.imgur.com/6GJsjSu.png)
+
+#### **↓ Login ↓**
+
+#### ![image](https://i.imgur.com/QQ7oPaQ.png)
+
+#### **↓ Brewery List ↓**
+
+#### ![image](https://i.imgur.com/X2Xx3T4.png)
+
+#### **↓ Brewery Review ↓**
+
+#### ![image](https://i.imgur.com/YeVR8g9.png)
+
+#### **↓ User Profile ↓**
+
+#### ![image](https://i.imgur.com/MmsqjcE.png)
+
+---
+
 ### **_Getting Started_**
 
 - `Fork` and `Clone`

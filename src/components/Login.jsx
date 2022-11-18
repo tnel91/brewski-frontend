@@ -29,7 +29,7 @@ const Login = (props) => {
         email: formState.email,
         password: formState.password
       })
-
+      
       props.setUser(signedIn)
       props.toggleAuthenticated(true)
       toggleIsError(false)

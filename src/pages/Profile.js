@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 const Profile = (props) => {
   let navigate = useNavigate();
 
+
   return (
     <div className="profile">
       <div className="info-card">
@@ -16,18 +17,15 @@ const Profile = (props) => {
       </div>
       </div>
       <div className="review-cardfav">
-        <h2>Favorite Reviews</h2>
+        <h2>Favorite breweries</h2>
         <div id="fav-reviews">
-          <p>Your favorite reviews go here</p>
+          <p>Your favorite breweries go here</p>
         </div>
       </div>
       <div className="review-card">
         <h2>Your Reviews</h2>
         <div id="your-reviews">
           <p>Your reviews go here</p>
-            <h3>{props.name}</h3>
-            <p>{props.address}</p>
-            <p>{props.beers}</p>
         </div>
       </div>
       <div className="user-button">
