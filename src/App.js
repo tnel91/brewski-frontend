@@ -21,6 +21,19 @@ function App() {
     localStorage.clear()
   }
 
+  const checkToken = async () => {
+    const user = await CheckSession()
+    setUser(user)
+    toggleAuthenticated(true)
+  }
+
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if (token) {
+      checkToken()
+    }
+  }, [])
+
   return (
     <div className="App">
       <Nav
@@ -46,7 +59,7 @@ function App() {
           path="/breweries/:breweryId"
           element={<BreweryDetails user={user} />}
         />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile" element={<Profile user={user} />} />
       </Routes>
       <div>
         <Footer />
