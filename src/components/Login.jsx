@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import axios from 'axios'
 import { SignInUser } from '../services/Auth'
 import { useNavigate } from 'react-router-dom'
 import ErrorMsg from './ErrorMsg'
@@ -29,7 +28,7 @@ const Login = (props) => {
         email: formState.email,
         password: formState.password
       })
-      
+
       props.setUser(signedIn)
       props.toggleAuthenticated(true)
       toggleIsError(false)
