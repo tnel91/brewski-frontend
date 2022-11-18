@@ -225,3 +225,8 @@ margin: 1em
   position: relative;
   text-align: center;
 }
+
+.auth-error .buttons {
+  width: fit-content;
+  margin: 4rem auto;
+}
