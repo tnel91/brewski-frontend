@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const Home = () => {
+const Home = (props) => {
   let navigate = useNavigate()
 
   return (
@@ -27,14 +27,16 @@ const Home = () => {
           Breweries you find interesting!{' '}
         </p>
       </div>
-      <div className="home-buttons">
-        <button id="button" onClick={() => navigate('/signin')}>
-          Sign In
-        </button>
-        <button id="button" onClick={() => navigate('/register')}>
-          Register
-        </button>
-      </div>
+      {!props.authenticated && (
+        <div className="home-buttons">
+          <button id="button" onClick={() => navigate('/signin')}>
+            Sign In
+          </button>
+          <button id="button" onClick={() => navigate('/register')}>
+            Register
+          </button>
+        </div>
+      )}
       <div className="home2">
         <img
           className="pic1"

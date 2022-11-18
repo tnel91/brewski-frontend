@@ -272,6 +272,10 @@ margin: 1em
   height: 100vh;
 }
 
+.login, .signup {
+  height: 100vh;
+}
+
 .footer {
   padding: 5rem;
   position: relative;

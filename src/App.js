@@ -43,7 +43,7 @@ function App() {
       />
 
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home authenticated={authenticated} />} />
         <Route path="/register" element={<Register />} />
         <Route
           path="/signin"
