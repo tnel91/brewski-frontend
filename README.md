@@ -2,7 +2,8 @@
 
 ### **_Description_**
 
-#### Brewski is an application that gathers breweries from around the world, displays them for you and allows you to leave your own review! 
+#### Brewski is an application that gathers breweries from around the world, displays them for you and allows you to leave your own review!
+
 #### This application has full CRUD and authentication/authorization functionality; you can create your own account and start adding reviews to your favorite brewery!
 
 ---
@@ -57,7 +58,6 @@
 
 ---
 
-
 ### **_Links_**
 
 ### [Trello Board](https://trello.com/b/IjF3jDqB/brewski-planner)
@@ -68,7 +68,7 @@
 
 #### **↓ Entity Relationship Diagram ↓**
 
-#### ![ERD](https://i.imgur.com/zzDwlUB.png)
+#### ![ERD](https://i.imgur.com/R3Manbi.png)
 
 ---
 
@@ -105,7 +105,3 @@
 [W3 School](https://www.w3schools.com/)
 
 [MDN](https://developer.mozilla.org/en-US/)
-
-
-
-
