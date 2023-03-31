@@ -1,10 +1,9 @@
-import axios from 'axios'
-import { useState } from 'react'
+// import { useState } from 'react'
 
 const ReviewCard = (props) => {
-  const [author, setAuthor] = useState({})
+  // const [author, setAuthor] = useState({})
 
-  const getAuthor = async () => {}
+  // const getAuthor = async () => {}
 
   return (
     <div>

@@ -108,7 +108,7 @@ const ReviewForm = (props) => {
 
   useEffect(() => {
     initForm()
-  }, [props.user, props.breweryId])
+  }, [props.user, props.breweryId, initForm])
 
   return (
     <form id="review_form" onSubmit={handleSubmit}>

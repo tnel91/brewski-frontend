@@ -42,7 +42,7 @@ const BreweryDetails = (props) => {
 
   useEffect(() => {
     getBrewery()
-  }, [breweryId])
+  }, [breweryId, getBrewery])
 
   return (
     <div>
