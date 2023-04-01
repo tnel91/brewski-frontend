@@ -27,7 +27,7 @@ const ReviewForm = (props) => {
         .put(`${BASE_URL}/reviews/edit/${formLayout.reveiwId}`, formState)
         .then(() => {
           props.getReviews()
-          initForm()
+          // initForm()
         })
         .catch((error) => {
           console.log(error)
@@ -38,7 +38,7 @@ const ReviewForm = (props) => {
         .post(`${BASE_URL}/reviews/new`, formState)
         .then(() => {
           props.getReviews()
-          initForm()
+          // initForm()
         })
         .catch((error) => {
           console.log(error)
@@ -57,58 +57,58 @@ const ReviewForm = (props) => {
       .delete(`${BASE_URL}/reviews/delete/${formLayout.reveiwId}`)
       .then(() => {
         props.getReviews()
-        initForm()
+        // initForm()
       })
       .catch((error) => {
         console.log(error)
       })
   }
 
-  const initForm = async () => {
-    if (props.user) {
-      document.getElementById('review_form').style.display = ''
-      await axios
-        .get(`${BASE_URL}/reviews/${props.breweryId}/${props.user.id}`)
-        .then((response) => {
-          if (response.data) {
-            setFormState({
-              body: response.data.body,
-              breweryId: props.breweryId,
-              authorId: props.user.id
-            })
-            setFormLayout({
-              legend: 'Update Review',
-              buttonText: 'Update Review',
-              updateForm: true,
-              reveiwId: response.data.id
-            })
-            document.getElementById('delete_button').style.display = ''
-          } else {
-            setFormState({
-              body: '',
-              breweryId: props.breweryId,
-              authorId: props.user.id
-            })
-            setFormLayout({
-              legend: 'Create Review',
-              buttonText: 'Submit Review',
-              updateForm: false,
-              reveiwId: response.data.id
-            })
-            document.getElementById('delete_button').style.display = 'none'
-          }
-        })
-        .catch((error) => {
-          console.log(error)
-        })
-    } else {
-      document.getElementById('review_form').style.display = 'none'
-    }
-  }
-
   useEffect(() => {
+    const initForm = async () => {
+      if (props.user) {
+        document.getElementById('review_form').style.display = ''
+        await axios
+          .get(`${BASE_URL}/reviews/${props.breweryId}/${props.user.id}`)
+          .then((response) => {
+            if (response.data) {
+              setFormState({
+                body: response.data.body,
+                breweryId: props.breweryId,
+                authorId: props.user.id
+              })
+              setFormLayout({
+                legend: 'Update Review',
+                buttonText: 'Update Review',
+                updateForm: true,
+                reveiwId: response.data.id
+              })
+              document.getElementById('delete_button').style.display = ''
+            } else {
+              setFormState({
+                body: '',
+                breweryId: props.breweryId,
+                authorId: props.user.id
+              })
+              setFormLayout({
+                legend: 'Create Review',
+                buttonText: 'Submit Review',
+                updateForm: false,
+                reveiwId: response.data.id
+              })
+              document.getElementById('delete_button').style.display = 'none'
+            }
+          })
+          .catch((error) => {
+            console.log(error)
+          })
+      } else {
+        document.getElementById('review_form').style.display = 'none'
+      }
+    }
+
     initForm()
-  }, [props.user, props.breweryId, initForm])
+  }, [props.user, props.breweryId, props.reviews])
 
   return (
     <form id="review_form" onSubmit={handleSubmit}>

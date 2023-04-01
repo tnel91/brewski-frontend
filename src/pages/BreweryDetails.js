@@ -28,21 +28,20 @@ const BreweryDetails = (props) => {
       })
   }
 
-  const getBrewery = async () => {
-    await axios
-      .get(`${BASE_URL}/brewery/${breweryId}`)
-      .then((response) => {
-        setBrewery(response.data)
-        getReviews()
-      })
-      .catch((error) => {
-        console.log(error)
-      })
-  }
-
   useEffect(() => {
+    const getBrewery = async () => {
+      await axios
+        .get(`${BASE_URL}/brewery/${breweryId}`)
+        .then((response) => {
+          setBrewery(response.data)
+          getReviews()
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    }
     getBrewery()
-  }, [breweryId, getBrewery])
+  }, [breweryId])
 
   return (
     <div>
@@ -58,6 +57,7 @@ const BreweryDetails = (props) => {
           </div>
           <section className="review_section">
             <ReviewForm
+              reviews={reviews}
               breweryId={breweryId}
               getReviews={getReviews}
               user={props.user}

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import AuthError from '../components/AuthError'
 
 const Profile = (props) => {
-  let navigate = useNavigate()
+  // let navigate = useNavigate()
 
   return (
     <div className="profile">
