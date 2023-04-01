@@ -41,7 +41,7 @@ const BreweryDetails = (props) => {
         })
     }
     getBrewery()
-  }, [breweryId])
+  }, [breweryId, getReviews])
 
   return (
     <div>
