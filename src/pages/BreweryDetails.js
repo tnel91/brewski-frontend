@@ -15,33 +15,39 @@ const BreweryDetails = (props) => {
 
   const [reviews, setReviews] = useState([])
 
+  const [editCounter, setEditCounter] = useState(0)
+
   let { breweryId } = useParams()
 
-  const getReviews = async () => {
-    await axios
-      .get(`${BASE_URL}/reviews/${breweryId}`)
-      .then((response) => {
-        setReviews(response.data)
-      })
-      .catch((error) => {
-        console.log(error)
-      })
-  }
+  useEffect(() => {
+    console.log('useEffect getReviews')
+    const getReviews = async () => {
+      await axios
+        .get(`${BASE_URL}/reviews/${breweryId}`)
+        .then((response) => {
+          setReviews(response.data)
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    }
+    getReviews()
+  }, [editCounter])
 
   useEffect(() => {
+    console.log('useEffect getBrewery')
     const getBrewery = async () => {
       await axios
         .get(`${BASE_URL}/brewery/${breweryId}`)
         .then((response) => {
           setBrewery(response.data)
-          getReviews()
         })
         .catch((error) => {
           console.log(error)
         })
     }
     getBrewery()
-  }, [breweryId, getReviews])
+  }, [breweryId])
 
   return (
     <div>
@@ -59,7 +65,8 @@ const BreweryDetails = (props) => {
             <ReviewForm
               reviews={reviews}
               breweryId={breweryId}
-              getReviews={getReviews}
+              editCounter={editCounter}
+              setEditCounter={setEditCounter}
               user={props.user}
             />
             <div className="review_list">

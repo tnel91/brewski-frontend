@@ -21,13 +21,13 @@ const ReviewForm = (props) => {
   }
 
   const handleSubmit = async (event) => {
+    console.log('submit')
     event.preventDefault()
     if (formLayout.updateForm === true) {
       await axios
         .put(`${BASE_URL}/reviews/edit/${formLayout.reveiwId}`, formState)
         .then(() => {
-          props.getReviews()
-          // initForm()
+          props.setEditCounter(props.editCounter + 1)
         })
         .catch((error) => {
           console.log(error)
@@ -37,8 +37,7 @@ const ReviewForm = (props) => {
       await axios
         .post(`${BASE_URL}/reviews/new`, formState)
         .then(() => {
-          props.getReviews()
-          // initForm()
+          props.setEditCounter(props.editCounter + 1)
         })
         .catch((error) => {
           console.log(error)
@@ -56,8 +55,7 @@ const ReviewForm = (props) => {
     await axios
       .delete(`${BASE_URL}/reviews/delete/${formLayout.reveiwId}`)
       .then(() => {
-        props.getReviews()
-        // initForm()
+        props.setEditCounter(props.editCounter + 1)
       })
       .catch((error) => {
         console.log(error)
