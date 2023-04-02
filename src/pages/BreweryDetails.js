@@ -32,7 +32,7 @@ const BreweryDetails = (props) => {
         })
     }
     getReviews()
-  }, [editCounter])
+  }, [editCounter, breweryId])
 
   useEffect(() => {
     console.log('useEffect getBrewery')
