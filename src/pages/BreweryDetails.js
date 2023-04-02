@@ -20,7 +20,7 @@ const BreweryDetails = (props) => {
   let { breweryId } = useParams()
 
   useEffect(() => {
-    console.log('useEffect getReviews')
+    // console.log('useEffect getReviews')
     const getReviews = async () => {
       await axios
         .get(`${BASE_URL}/reviews/${breweryId}`)
@@ -35,7 +35,7 @@ const BreweryDetails = (props) => {
   }, [editCounter, breweryId])
 
   useEffect(() => {
-    console.log('useEffect getBrewery')
+    // console.log('useEffect getBrewery')
     const getBrewery = async () => {
       await axios
         .get(`${BASE_URL}/brewery/${breweryId}`)

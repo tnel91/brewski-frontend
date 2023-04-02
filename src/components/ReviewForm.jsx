@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { BASE_URL } from '../globals'
-
+console.log(BASE_URL)
 const ReviewForm = (props) => {
   const [formState, setFormState] = useState({
     body: '',
