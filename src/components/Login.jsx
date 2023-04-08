@@ -22,7 +22,6 @@ const Login = (props) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-
     try {
       const signedIn = await SignInUser({
         email: formState.email,
@@ -36,11 +35,6 @@ const Login = (props) => {
     } catch (err) {
       toggleIsError(true)
     }
-
-    setFormState({
-      email: '',
-      password: ''
-    })
   }
 
   return (

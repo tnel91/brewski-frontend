@@ -5,7 +5,6 @@ import ReviewForm from '../components/ReviewForm'
 import ReviewCard from '../components/ReviewCard'
 import AuthError from '../components/AuthError'
 import { BASE_URL } from '../globals'
-console.log(`BASE_URL: ${BASE_URL}`)
 
 const BreweryDetails = (props) => {
   const [brewery, setBrewery] = useState({
