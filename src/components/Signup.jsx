@@ -2,8 +2,9 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { RegisterUser } from '../services/Auth'
 import ErrorMsg from './ErrorMsg'
+import DemoLogin from './DemoLogin'
 
-const Signup = () => {
+const Signup = (props) => {
   const [formState, setFormState] = useState({
     email: '',
     password: '',
@@ -91,6 +92,10 @@ const Signup = () => {
         />
 
         <button type="submit">Register</button>
+        <DemoLogin
+          setUser={props.setUser}
+          toggleAuthenticated={props.toggleAuthenticated}
+        />
       </form>
 
       {isError && <ErrorMsg msg={errorMsg} />}

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { SignInUser } from '../services/Auth'
 import { useNavigate } from 'react-router-dom'
 import ErrorMsg from './ErrorMsg'
+import DemoLogin from './DemoLogin'
 
 const Login = (props) => {
   const [formState, setFormState] = useState({
@@ -27,7 +28,6 @@ const Login = (props) => {
         email: formState.email,
         password: formState.password
       })
-
       props.setUser(signedIn)
       props.toggleAuthenticated(true)
       toggleIsError(false)
@@ -50,7 +50,6 @@ const Login = (props) => {
           required
           onChange={(event) => handleChange(event)}
         />
-
         <label htmlFor="password">Password</label>
         <input
           type="password"
@@ -61,10 +60,12 @@ const Login = (props) => {
           required
           onChange={(event) => handleChange(event)}
         />
-
         <button type="submit">Sign In</button>
+        <DemoLogin
+          setUser={props.setUser}
+          toggleAuthenticated={props.toggleAuthenticated}
+        />
       </form>
-
       {isError && <ErrorMsg msg="Wrong email or password!" />}
     </div>
   )

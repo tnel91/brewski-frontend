@@ -43,8 +43,25 @@ function App() {
       />
 
       <Routes>
-        <Route path="/" element={<Home authenticated={authenticated} />} />
-        <Route path="/register" element={<Register />} />
+        <Route
+          path="/"
+          element={
+            <Home
+              authenticated={authenticated}
+              setUser={setUser}
+              toggleAuthenticated={toggleAuthenticated}
+            />
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <Register
+              setUser={setUser}
+              toggleAuthenticated={toggleAuthenticated}
+            />
+          }
+        />
         <Route
           path="/signin"
           element={

@@ -1,11 +1,13 @@
 import Signup from '../components/Signup'
 
-const Register = () => {
+const Register = (props) => {
   return (
     <div className="register">
       <h2>Register</h2>
-
-      <Signup />
+      <Signup
+        setUser={props.setUser}
+        toggleAuthenticated={props.toggleAuthenticated}
+      />
     </div>
   )
 }

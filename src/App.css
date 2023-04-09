@@ -1,11 +1,11 @@
-
-h2, h1 {
+h2,
+h1 {
   width: fit-content;
   margin: 0 auto;
   padding: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  border-bottom: 2px solid #D1495B;
+  border-bottom: 2px solid #d1495b;
 }
 
 h1 {
@@ -51,7 +51,7 @@ p {
 }
 
 button {
-  background-color: #009FFD;
+  background-color: #009ffd;
   cursor: pointer;
   border: none;
   color: white;
@@ -90,7 +90,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #EDAE49;
+  background: #edae49;
   z-index: 10;
 }
 
@@ -161,10 +161,11 @@ form input {
 
 .error-msg {
   width: fit-content;
-  padding: 1rem 2rem;
+  /* height: 1rem; */
+  /* padding: 1rem 2rem; */
   margin: 2rem auto;
   text-transform: uppercase;
-  border: 1px solid #D1495B;
+  border: 1px solid #d1495b;
 }
 
 /* REVIEWS */
@@ -206,7 +207,7 @@ form input {
 }
 
 .review_list {
-margin: 1em
+  margin: 1em;
 }
 
 #review_form {
@@ -232,7 +233,7 @@ margin: 1em
   border-radius: 5px;
   cursor: pointer;
   border: none;
-  background-color: #009FFD;
+  background-color: #009ffd;
   color: white;
 }
 
@@ -250,8 +251,8 @@ margin: 1em
 }
 
 .brewery_card:hover {
-  color: #D1495B;
-  border-color: #D1495B;
+  color: #d1495b;
+  border-color: #d1495b;
 }
 
 .beer_list {
@@ -270,7 +271,8 @@ margin: 1em
   height: 100vh;
 }
 
-.login, .signup {
+.login,
+.signup {
   height: 100vh;
 }
 

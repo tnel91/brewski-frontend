@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import DemoLogin from '../components/DemoLogin'
 
 const Home = (props) => {
   let navigate = useNavigate()
@@ -35,6 +36,10 @@ const Home = (props) => {
           <button id="button" onClick={() => navigate('/register')}>
             Register
           </button>
+          <DemoLogin
+            setUser={props.setUser}
+            toggleAuthenticated={props.toggleAuthenticated}
+          />
         </div>
       )}
       <div className="home2">
