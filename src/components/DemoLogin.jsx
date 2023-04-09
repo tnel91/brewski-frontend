@@ -4,7 +4,8 @@ import { useNavigate } from 'react-router-dom'
 const DemoLogin = (props) => {
   let navigate = useNavigate()
 
-  const demoLogin = async () => {
+  const demoLogin = async (event) => {
+    event.preventDefault()
     try {
       const signedIn = await SignInUser({
         email: 'demouser@demo.com',
@@ -15,6 +16,7 @@ const DemoLogin = (props) => {
       props.toggleAuthenticated(true)
       navigate('/breweries')
     } catch (err) {
+      props.toggleIsError(true)
       console.log(err)
     }
   }

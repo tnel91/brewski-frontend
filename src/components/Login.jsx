@@ -39,7 +39,7 @@ const Login = (props) => {
 
   return (
     <div className="login">
-      <form onSubmit={handleSubmit}>
+      <form>
         <label htmlFor="email">Email</label>
         <input
           type="text"
@@ -60,10 +60,13 @@ const Login = (props) => {
           required
           onChange={(event) => handleChange(event)}
         />
-        <button type="submit">Sign In</button>
+        <button type="button" onClick={handleSubmit}>
+          Sign In
+        </button>
         <DemoLogin
           setUser={props.setUser}
           toggleAuthenticated={props.toggleAuthenticated}
+          toggleIsError={toggleIsError}
         />
       </form>
       {isError && <ErrorMsg msg="Wrong email or password!" />}
